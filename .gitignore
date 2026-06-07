@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# Checkpoints & Data (Large files)
+hand_gesture_recognition/checkpoints/
+hand_gesture_recognition/data/
+
+# OS / IDE
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

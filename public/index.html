@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time Hand Gesture Recognition Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Premium Header -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">🖐</div>
+      <h1>SignVision AI</h1>
+    </div>
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      <span id="status-text">Server Active</span>
+    </div>
+  </header>
+
+  <!-- Main Grid Dashboard -->
+  <main class="dashboard">
+    <!-- Left Panel: Webcam Stream and Configuration -->
+    <section class="feed-section glass-panel">
+      <div class="video-container">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="output"></canvas>
+      </div>
+      
+      <div class="feed-controls">
+        <div class="select-wrapper">
+          <label for="language-select">Sign Language Variant</label>
+          <select id="language-select">
+            <option value="ASL" selected>ASL (American)</option>
+            <option value="BSL">BSL (British)</option>
+            <option value="ISL">ISL (Indian)</option>
+            <option value="CSL">CSL (Chinese)</option>
+            <option value="ArSL">ArSL (Arabic)</option>
+            <option value="FSL">FSL (French)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Panel: Recognition Outputs & Gesture Library -->
+    <section class="results-section">
+      <!-- Active Prediction Result Card -->
+      <div class="glass-panel result-card">
+        <h3>Detected Gesture</h3>
+        <div id="gesture-display" class="gesture-name">No Hand Detected</div>
+        <div class="confidence-text" id="confidence-display">0.0%</div>
+        <div class="confidence-bar-container">
+          <div id="confidence-bar" class="confidence-bar"></div>
+        </div>
+        <div class="method-tag" id="method-display">Engine Standby</div>
+      </div>
+
+      <!-- Gesture Help Sheet Library -->
+      <div class="glass-panel gestures-library">
+        <h4>Supported Gestures Library</h4>
+        <div class="library-grid" id="library-grid">
+          <div class="library-item" data-gesture="Fist">✊ Fist</div>
+          <div class="library-item" data-gesture="Open Palm">✋ Open Palm</div>
+          <div class="library-item" data-gesture="Peace / V Sign">✌️ Peace / V Sign</div>
+          <div class="library-item" data-gesture="Thumbs Up">👍 Thumbs Up</div>
+          <div class="library-item" data-gesture="Thumbs Down">👎 Thumbs Down</div>
+          <div class="library-item" data-gesture="OK Sign">👌 OK Sign</div>
+          <div class="library-item" data-gesture="Rock On (Sign of Horns)">🤘 Rock On</div>
+          <div class="library-item" data-gesture="Pointing (Index)">👉 Pointing</div>
+        </div>
+      </div>
+
+      <!-- Informative Info Bar -->
+      <div class="info-section">
+        <div class="info-icon">ℹ️</div>
+        <div class="info-text">
+          Landmarks are extracted **locally in the browser** for low latency. Only the 21 3D coordinate graph is passed to the **Python API Backend** for classification.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Load TensorFlow.js and Handpose model -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.13.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7"></script>
+  <script src="app.js"></script>
+</body>
+</html>

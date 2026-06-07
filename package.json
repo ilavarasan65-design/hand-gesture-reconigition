@@ -1,0 +1,19 @@
+{
+  "name": "hand-gesture-recognition",
+  "version": "0.1.0",
+  "description": "Web app that captures webcam video and recognizes hand gestures using TensorFlow.js.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

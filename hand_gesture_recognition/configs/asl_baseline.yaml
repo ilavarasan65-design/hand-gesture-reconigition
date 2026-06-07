@@ -1,0 +1,20 @@
+# configs/asl_baseline.yaml
+# Single-language baseline on ASL data
+
+data:
+  train_csv: data/processed/asl_train.csv
+  val_csv:   data/processed/asl_val.csv
+  languages: [ASL]
+
+model:
+  graph_type:   gcn          # gcn | gat
+  cnn_backbone: mobilenet_v3 # mobilenet_v3 | resnet50 | efficientnet_b0
+  embed_dim:    256
+  use_image:    true
+
+training:
+  epochs:       50
+  batch_size:   32
+  lr:           3e-4
+  weight_decay: 1e-4
+  num_workers:  4

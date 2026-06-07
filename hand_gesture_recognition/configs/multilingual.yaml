@@ -1,0 +1,20 @@
+# configs/multilingual.yaml
+# Multi-language training with language adapters
+
+data:
+  train_csv: data/processed/multilingual_train.csv
+  val_csv:   data/processed/multilingual_val.csv
+  languages: [ASL, BSL, ISL, CSL, ArSL, FSL]
+
+model:
+  graph_type:   gat          # GAT is more expressive for cross-language
+  cnn_backbone: mobilenet_v3
+  embed_dim:    256
+  use_image:    true
+
+training:
+  epochs:       80
+  batch_size:   64
+  lr:           2e-4
+  weight_decay: 1e-4
+  num_workers:  4
